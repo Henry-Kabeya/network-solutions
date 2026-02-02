@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription - Henry-Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; padding-top: 70px; }
+        nav { background: #1e3a8a; padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-size: 1.5rem; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid white; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; padding: 5px 15px; border-radius: 20px; }
+        .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.2); }
+        .page-title { text-align: center; padding: 60px 20px 40px; background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; }
+        .page-title h1 { font-size: 2.5rem; }
+        .form-section { max-width: 700px; margin: 50px auto; padding: 0 20px; }
+        .form-container { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .form-header { text-align: center; margin-bottom: 30px; }
+        .form-header i { font-size: 3rem; color: #1e3a8a; margin-bottom: 15px; }
+        .form-header h2 { color: #1e3a8a; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #1e3a8a; font-weight: 600; }
+        input, select { width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; }
+        button { width: 100%; padding: 15px; background: #1e3a8a; color: white; border: none; border-radius: 8px; font-size: 1.2rem; font-weight: bold; cursor: pointer; }
+        button:hover { background: #3b82f6; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; z-index: 999; }
+        footer { background: #1f2937; color: white; text-align: center; padding: 2rem; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="Andy.png" alt="Logo" onerror="this.style.display='none'">
+                Henry-Tech
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="inscription.html" class="active">Inscription</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-title">
+        <h1>Inscription en Ligne</h1>
+    </div>
+
+    <section class="form-section">
+        <div class="form-container">
+            <div class="form-header">
+                <i class="fas fa-user-plus"></i>
+                <h2>Fiche d'Inscription</h2>
+            </div>
+
+            <form action="https://formspree.io/f/VOTRE_CODE_ICI" method="POST">
+                <div class="form-group">
+                    <label>NOM</label>
+                    <input type="text" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label>POST-NOM</label>
+                    <input type="text" name="postnom" required>
+                </div>
+                <div class="form-group">
+                    <label>PRÉNOM</label>
+                    <input type="text" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label>LIEU DE NAISSANCE</label>
+                    <input type="text" name="lieu_naissance" required>
+                </div>
+                <div class="form-group">
+                    <label>DATE DE NAISSANCE</label>
+                    <input type="date" name="date_naissance" required>
+                </div>
+                <div class="form-group">
+                    <label>PROVINCE</label>
+                    <input type="text" name="province" required>
+                </div>
+                <div class="form-group">
+                    <label>FORMATION</label>
+                    <select name="formation" required>
+                        <option value="">Choisir...</option>
+                        <option>Vidéosurveillance</option>
+                        <option>Réseaux PME</option>
+                        <option>Maintenance</option>
+                        <option>OS & Logiciels</option>
+                        <option>CCNA</option>
+                        <option>Bureautique</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>EMAIL</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>TÉLÉPHONE</label>
+                    <input type="tel" name="telephone" placeholder="+243..." required>
+                </div>
+                <input type="hidden" name="_next" value="merci.html">
+                <button type="submit">ENVOYER</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Henry-Tech Network Solutions</p>
+    </footer>
+
+    <a href="https://wa.me/243970710710" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>

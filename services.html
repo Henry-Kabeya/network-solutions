@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Services - Henry-Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; padding-top: 70px; }
+        nav { background: #1e3a8a; padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-size: 1.5rem; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid white; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; padding: 5px 15px; border-radius: 20px; }
+        .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.2); }
+        .page-title { text-align: center; padding: 60px 20px 40px; background: #f0f0f0; }
+        .page-title h1 { color: #1e3a8a; font-size: 2.5rem; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .service { background: white; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid #3b82f6; }
+        .service i { font-size: 3rem; color: #3b82f6; margin-bottom: 20px; }
+        .service h3 { color: #1e3a8a; margin-bottom: 15px; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; z-index: 999; }
+        footer { background: #1f2937; color: white; text-align: center; padding: 2rem; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="Andy.png" alt="Logo" onerror="this.style.display='none'">
+                Henry-Tech
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="inscription.html">Inscription</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-title">
+        <h1>Nos Services</h1>
+    </div>
+
+    <section class="services">
+        <div class="service">
+            <i class="fas fa-video"></i>
+            <h3>Vidéosurveillance</h3>
+            <p>Installation des systèmes de surveillance</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-network-wired"></i>
+            <h3>Réseaux PME</h3>
+            <p>Création de réseaux professionnels</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-tools"></i>
+            <h3>Maintenance</h3>
+            <p>Maintenance informatique</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-compact-disc"></i>
+            <h3>OS & Logiciels</h3>
+            <p>Installation et mise à jour</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-certificate"></i>
+            <h3>Formation CCNA</h3>
+            <p>Certification Cisco</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-laptop"></i>
+            <h3>Bureautique</h3>
+            <p>Word, Excel, PowerPoint...</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Henry-Tech Network Solutions</p>
+    </footer>
+
+    <a href="https://wa.me/243970710710" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
