@@ -178,12 +178,6 @@
             const successMsg = document.getElementById('successMsg');
             const errorMsg = document.getElementById('errorMsg');
 
-            // Vérifier que l'ID Formspree a été configuré
-            if (form.action.includes('mqeobwae')) {
-                alert('⚠️ IMPORTANT : Vous devez configurer votre ID Formspree !\n\n1. Allez sur https://formspree.io\n2. Créez un compte gratuit\n3. Créez un formulaire et copiez l\'ID\n4. Remplacez "VOTRE_ID_FORMSPREE" dans le code HTML');
-                return;
-            }
-
             // Cacher le bouton et afficher le chargement
             submitBtn.style.display = 'none';
             loading.style.display = 'block';
