@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -116,5 +116,231 @@
     <a href="https://wa.me/243970710710" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Henry-Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; padding-top: 70px; }
+        nav { background: #1e3a8a; padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-size: 1.5rem; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid white; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; padding: 5px 15px; border-radius: 20px; }
+        .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.2); }
+        .page-title { text-align: center; padding: 60px 20px 40px; background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; }
+        .page-title h1 { font-size: 2.5rem; }
+        .form-section { max-width: 700px; margin: 50px auto; padding: 0 20px; }
+        .form-container { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .form-header { text-align: center; margin-bottom: 30px; }
+        .form-header i { font-size: 3rem; color: #1e3a8a; margin-bottom: 15px; }
+        .form-header h2 { color: #1e3a8a; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #1e3a8a; font-weight: 600; }
+        input, select { width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; }
+        input:focus, select:focus { border-color: #3b82f6; outline: none; }
+        button { width: 100%; padding: 15px; background: #1e3a8a; color: white; border: none; border-radius: 8px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: #3b82f6; }
+        .loading { display: none; text-align: center; padding: 20px; }
+        .loading i { font-size: 2rem; color: #1e3a8a; animation: spin 1s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .success-msg { display: none; background: #d1fae5; color: #065f46; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center; border: 1px solid #10b981; }
+        .error-msg { display: none; background: #fee2e2; color: #991b1b; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center; border: 1px solid #ef4444; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; z-index: 999; }
+        footer { background: #1f2937; color: white; text-align: center; padding: 2rem; margin-top: 50px; }
+        @media (max-width: 768px) {
+            .form-container { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="IMG-20260609-WA0035.jpg" alt="Logo" onerror="this.style.display='none'">
+                Henry-Tech
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="inscription.html" class="active">Inscription</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-title">
+        <h1>Inscription en Ligne</h1>
+    </div>
+
+    <section class="form-section">
+        <div class="form-container">
+            <div class="form-header">
+                <i class="fas fa-user-plus"></i>
+                <h2>Fiche d'Inscription</h2>
+            </div>
+
+            <!-- Messages de confirmation/erreur -->
+            <div class="success-msg" id="successMsg">
+                <i class="fas fa-check-circle"></i> <strong>Inscription envoyée avec succès !</strong><br>
+                Vous allez être redirigé vers la page de confirmation...
+            </div>
+            <div class="error-msg" id="errorMsg">
+                <i class="fas fa-exclamation-circle"></i> <strong>Une erreur s'est produite.</strong><br>
+                Veuillez vérifier votre connexion et réessayer.
+            </div>
+
+            <!-- Indicateur de chargement -->
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner"></i>
+                <p>Envoi en cours...</p>
+            </div>
+
+            <!-- ====== FORMULAIRE AVEC BACK-END FORMSPREE ====== -->
+            <!-- 
+                INSTRUCTIONS IMPORTANTES :
+                1. Allez sur https://formspree.io et créez un compte GRATUIT
+                2. Créez un nouveau formulaire
+                3. Copiez votre ID (ex: xrgjwbzy)
+                4. Remplacez "VOTRE_ID_FORMSPREE" ci-dessous par votre vrai ID
+            -->
+            <form id="inscriptionForm" action="https://formspree.io/f/mqeobwae" method="POST">
+
+                <!-- Redirection après envoi réussi -->
+                <input type="hidden" name="_next" value="merci.html">
+
+                <!-- Sujet de l'email reçu -->
+                <input type="hidden" name="_subject" value="📋 Nouvelle inscription - Henry-Tech Network Solutions">
+
+                <!-- Réponse automatique envoyée à l'apprenant -->
+                <input type="hidden" name="_autoresponse" value="Merci pour votre inscription chez Henry-Tech Network Solutions ! Votre demande a bien été reçue. Nous vous contacterons très prochainement pour finaliser votre inscription. Cordialement, L'equipe Henry-Tech.">
+
+                <!-- Email de réponse (reply-to) -->
+                <input type="hidden" name="_replyto" value="%email%">
+
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> NOM</label>
+                    <input type="text" name="nom" required placeholder="Votre nom de famille">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> POST-NOM</label>
+                    <input type="text" name="postnom" required placeholder="Votre post-nom">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> PRÉNOM</label>
+                    <input type="text" name="prenom" required placeholder="Votre prénom">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-map-marker-alt"></i> LIEU DE NAISSANCE</label>
+                    <input type="text" name="lieu_naissance" required placeholder="Ville de naissance">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-calendar"></i> DATE DE NAISSANCE</label>
+                    <input type="date" name="date_naissance" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-map"></i> PROVINCE</label>
+                    <input type="text" name="province" required placeholder="Votre province d'origine">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-graduation-cap"></i> FORMATION SOUHAITÉE</label>
+                    <select name="formation" required>
+                        <option value="">-- Choisir une formation --</option>
+                        <option value="Vidéosurveillance">Vidéosurveillance</option>
+                        <option value="Réseaux PME">Réseaux PME</option>
+                        <option value="Maintenance">Maintenance Informatique</option>
+                        <option value="OS & Logiciels">OS & Logiciels</option>
+                        <option value="CCNA">Formation CCNA (Cisco)</option>
+                        <option value="Bureautique">Bureautique (Word, Excel, PowerPoint)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> EMAIL</label>
+                    <input type="email" name="email" required placeholder="exemple@email.com">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> TÉLÉPHONE</label>
+                    <input type="tel" name="telephone" placeholder="+243 9XX XXX XXX" required>
+                </div>
+
+                <button type="submit" id="submitBtn">
+                    <i class="fas fa-paper-plane"></i> ENVOYER MON INSCRIPTION
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Henry-Tech Network Solutions</p>
+        <p>La fiabilité au cœur du réseau</p>
+    </footer>
+
+    <a href="https://wa.me/243970710710" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // ====== GESTION DU FORMULAIRE AVEC JAVASCRIPT ======
+        document.getElementById('inscriptionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const submitBtn = document.getElementById('submitBtn');
+            const loading = document.getElementById('loading');
+            const successMsg = document.getElementById('successMsg');
+            const errorMsg = document.getElementById('errorMsg');
+
+            // Vérifier que l'ID Formspree a été configuré
+            if (form.action.includes('VOTRE_ID_FORMSPREE')) {
+                alert('⚠️ IMPORTANT : Vous devez configurer votre ID Formspree !\n\n1. Allez sur https://formspree.io\n2. Créez un compte gratuit\n3. Créez un formulaire et copiez l\'ID\n4. Remplacez "VOTRE_ID_FORMSPREE" dans le code HTML');
+                return;
+            }
+
+            // Cacher le bouton et afficher le chargement
+            submitBtn.style.display = 'none';
+            loading.style.display = 'block';
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+
+            // Envoi des données à Formspree
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    loading.style.display = 'none';
+                    successMsg.style.display = 'block';
+                    form.reset();
+
+                    // Redirection vers la page de remerciement après 2.5 secondes
+                    setTimeout(() => {
+                        window.location.href = 'merci.html';
+                    }, 2500);
+                } else {
+                    throw new Error('Erreur serveur : ' + response.status);
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                loading.style.display = 'none';
+                errorMsg.style.display = 'block';
+                submitBtn.style.display = 'block';
+            });
+        });
+    </script>
 </body>
 </html>
